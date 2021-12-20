@@ -1,0 +1,55 @@
+*{
+    margin:0 ;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+:root{
+    --background: #1f1f1fde;
+    --white: #FFF;
+    --white-text-opacity-80: #ffffffc4;
+    --blue-background: #5432E0;
+    --blue-button: #5956FF;
+    --red-text: #fd7171ec;
+    --violet-text: #9332E0;
+    --yellow-text: #FFCA10;
+    --gren-border: #53FB37;
+    --black-background-button: #5B5B5B;
+    --black-background-card: #767676de;
+
+    --color-card-orange: #ff8f10de;
+    --color-card-violet: #9332E0;
+    --color-card-green: #53FB37;
+
+    --Roboto:'Roboto', sans-serif;
+}
+
+body{
+    background: var(--background)
+}
+
+img{
+    max-width: 100%;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: var(--Roboto);
+    color: var(--white);
+    gap: 12px;
+}
+
+input{
+    border: 3px solid var(--color-card-green);
+    height: 50px;
+    padding: 0  20px;
+    border-radius: 12px;
+}
+
+input[type="text"]:active{
+    outline:0;
+}
