@@ -50,6 +50,6 @@ input{
     border-radius: 12px;
 }
 
-input[type="text"]:active{
+input[type="text"]:focus{
     outline:0;
 }

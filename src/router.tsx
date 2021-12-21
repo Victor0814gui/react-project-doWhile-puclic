@@ -9,6 +9,8 @@ import { CardConstrutor } from './pages/CardInfo/pageConstrutor'
 import { CardDistruibuidor } from './pages/CardInfo/pageDistribuidor'
 import { CardMinerador } from './pages/CardInfo/pageMinerador'
 
+import { InfoUser } from './pages/InfoUser'
+
 export function Router(){
   return(
     <BrowserRouter>
@@ -22,6 +24,8 @@ export function Router(){
         <Route path="/minerador" component={CardMinerador}/>
         <Route path="/construtor" component={CardConstrutor}/>
         <Route path="/distribuidor" component={CardDistruibuidor}/>
+
+        <Route path="/info" component={InfoUser}/>
 
       </Switch>
     </BrowserRouter>

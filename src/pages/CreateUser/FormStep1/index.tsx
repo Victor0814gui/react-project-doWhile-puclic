@@ -1,12 +1,19 @@
-import { ChangeEvent, useEffect } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import {useHistory} from 'react-router-dom'
 import {Theme} from '../../../components/Theme'
 
 import { useForm, FormActions } from '../../../context/formContext'
 
+import step1Img from '../../../../public/images/step1.svg'
+
 import * as C from './styles'
 
+
 export function FormStep1(){
+
+    const [nameUser, setNameUser] = useState('')
+
+    const [disableButton, setDisableButton] = useState(false)
     
     const history = useHistory()
     const { state, dispatch } = useForm()
@@ -18,41 +25,46 @@ export function FormStep1(){
         })
     }, [])
 
-    function handleNextStep(){
-        if(state.name !== ''){
+
+    function handleNameChange(event: FormEvent){
+        event.preventDefault()
+
+        dispatch({
+            type: FormActions.setName,
+            payload: nameUser,
+        })
+
+        if(nameUser !== ''){
             history.push('/step2')
         }else{
             alert("preencha os dados")
         }
     }
 
-    function handleNameChange(event: ChangeEvent<HTMLInputElement>){
-        dispatch({
-            type: FormActions.setName,
-            payload: event.target.value,
-        })
-    }
-
     return(
         <C.Container>
-            <Theme>
-                <div>
-                    <p>passo {state.currentStep}/3</p>
-                    <h1>vamos começar com seu nome</h1>
-                    <p>preecha o nome abaixo com seu nome completo</p>
+            <main>
+                <Theme>
+                </Theme>
+            </main>
+            <div>
+                <img src={step1Img} alt="" />
+                <p>passo {state.currentStep}/3</p>
+                <h2>pra começar</h2>
+                <h1>difgite seu Nome</h1>
 
-                    <hr />
-
+                    <form onSubmit={handleNameChange}>
                         <label htmlFor="text"></label>
                         <input 
                             type="text" 
                             autoFocus
-                            onChange={handleNameChange}
+                            onChange={event => setNameUser(event.target.value)}
+                            value={nameUser}
                             id="text"
                         />
-                    <button onClick={handleNextStep}>Proximo</button>
-                </div>
-            </Theme>
+                        <button type="submit">Proximo</button>
+                    </form>
+            </div>
         </C.Container>
     )
 }

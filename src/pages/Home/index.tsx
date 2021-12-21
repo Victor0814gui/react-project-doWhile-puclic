@@ -24,7 +24,7 @@ export function Home(){
                 {(state.name !== '') && (
                 <span>,{state.name}</span>)}
             </h2>
-            <C.ContainerImage>
+            <C.ContainerImage onClick={() => history.push('/info')}>
                 <img src={userImage} alt="" />
             </C.ContainerImage>
         </C.Header>

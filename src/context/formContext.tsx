@@ -7,7 +7,7 @@ type State = {
     name: string;
     level: 0 | 1;
     email: string;
-    github: string;
+    password: string;
 }
 
 const initialData: State ={
@@ -15,7 +15,7 @@ const initialData: State ={
     name:'',
     email: '',
     level: 0,
-    github: '',
+    password: '',
 }
 
 type Action = {
@@ -37,7 +37,7 @@ export enum FormActions {
     setName,
     setLevel,
     setEmail,
-    setGithub
+    setPassword
 }
 
 export const FormContext = createContext<ContextType | undefined>(undefined)
@@ -52,8 +52,8 @@ export function formReducer(state : State, action: Action){
             return {...state, level: action.payload}
         case FormActions.setEmail:
             return {...state, email: action.payload}
-        case FormActions.setGithub:
-            return {...state, github: action.payload}
+        case FormActions.setPassword:
+            return {...state, password: action.payload}
         default:
             return state
     }

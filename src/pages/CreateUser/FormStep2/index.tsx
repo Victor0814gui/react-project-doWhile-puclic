@@ -1,11 +1,17 @@
-import { ChangeEvent, useEffect } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {Theme} from '../../../components/Theme'
 
 import { useForm, FormActions } from '../../../context/formContext'
 
+import step2Img from '../../../../public/images/step2.svg'
+
+import * as C from './styles'
 
 export function FormStep2(){
+
+    const [emailUser, setEmailUser] = useState('')
+
     
     const history = useHistory()
     const { state, dispatch } = useForm()
@@ -18,30 +24,55 @@ export function FormStep2(){
             type: FormActions.setCurrentStep,
             payload: 2
         })
+
     }, [])
 
-    function handleNextStep(){
-        if(state.name !== ''){
-            history.push('/home')
+   
+
+    function handleCapitureEmail(event: FormEvent){
+        event.preventDefault()
+
+        const email = emailUser
+        
+        dispatch({
+            type: FormActions.setEmail,
+            payload: email,
+        })
+
+        if(emailUser !== ''){
+            history.push('/step3')
         }else{
             alert("preencha os dados")
         }
     }
 
-
     return(
-        <Theme>
+        <C.Container>
+            <main>
+                <Theme>
+                </Theme>
+            </main>
             <div>
+                <img src={step2Img} alt="" />
                 <p>passo {state.currentStep}/3 </p>
-                <h1>O que melhor descreve você, {state.name}</h1>
-                <p>preecha o nome abaixo com seu nome completo</p>
+                    <h2>blz, {state.email} </h2>
+                    <h2>agora</h2>
+                    <h1>digite seu email</h1>
 
-                <hr />
-                <Link to="/">
+               <form onSubmit={handleCapitureEmail}>
+                    <label htmlFor="text"></label>
+                    <input  
+                        type="text" 
+                        autoFocus
+                        onChange={event => setEmailUser(event.target.value)}
+                        id="text"
+                    />
+                    <button type="submit">Proximo</button>
+               </form>
+                <Link to="/">   
                     Voltar
                 </Link>
-                <button onClick={handleNextStep}>Proximo</button>
             </div>
-        </Theme>
+        </C.Container>
     )
 }
