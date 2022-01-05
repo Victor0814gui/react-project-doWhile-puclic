@@ -5,6 +5,7 @@ import {Theme} from '../../../components/Theme'
 import { useForm, FormActions } from '../../../context/formContext'
 
 import step1Img from '../../../../public/images/step1.svg'
+import unsubscribeImg from  '../../../../public/images/unsubscribed.webp'
 
 import * as C from './styles'
 
@@ -12,8 +13,8 @@ import * as C from './styles'
 export function FormStep1(){
 
     const [nameUser, setNameUser] = useState('')
+    const [validateInput, setValidateInput] = useState(false)
 
-    const [disableButton, setDisableButton] = useState(false)
     
     const history = useHistory()
     const { state, dispatch } = useForm()
@@ -37,8 +38,12 @@ export function FormStep1(){
         if(nameUser !== ''){
             history.push('/step2')
         }else{
-            alert("preencha os dados")
+            setValidateInput(true)
         }
+    }
+
+    function handleChangeBorder(){
+        setValidateInput(false)
     }
 
     return(
@@ -51,7 +56,12 @@ export function FormStep1(){
                 <img src={step1Img} alt="" />
                 <p>passo {state.currentStep}/3</p>
                 <h2>pra começar</h2>
-                <h1>difgite seu Nome</h1>
+                
+                {!validateInput ? (
+                    <h1>digite seu Nome</h1>
+                ) :(
+                    <h1>você ainda não <br/> digitou seu Nome</h1>
+                )}
 
                     <form onSubmit={handleNameChange}>
                         <label htmlFor="text"></label>
@@ -59,8 +69,10 @@ export function FormStep1(){
                             type="text" 
                             autoFocus
                             onChange={event => setNameUser(event.target.value)}
+                            onClick={handleChangeBorder}
                             value={nameUser}
                             id="text"
+                            style={{border: `3px solid ${!validateInput ? '#53FB37' : '#fd7171ec'}` }}
                         />
                         <button type="submit">Proximo</button>
                     </form>

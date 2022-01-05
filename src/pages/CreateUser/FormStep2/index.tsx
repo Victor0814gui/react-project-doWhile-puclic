@@ -11,6 +11,7 @@ import * as C from './styles'
 export function FormStep2(){
 
     const [emailUser, setEmailUser] = useState('')
+    const [validateInput, setValidateInput] = useState(false)
 
     
     const history = useHistory()
@@ -42,8 +43,12 @@ export function FormStep2(){
         if(emailUser !== ''){
             history.push('/step3')
         }else{
-            alert("preencha os dados")
+            setValidateInput(true)
         }
+    }
+
+    function handleChangeBorder(){
+        setValidateInput(false)
     }
 
     return(
@@ -57,7 +62,11 @@ export function FormStep2(){
                 <p>passo {state.currentStep}/3 </p>
                     <h2>blz, {state.email} </h2>
                     <h2>agora</h2>
-                    <h1>digite seu email</h1>
+                    {!validateInput ? (
+                        <h1>digite seu Email</h1>
+                    ) :(
+                        <h1>você ainda não <br/> digitou seu Email</h1>
+                    )}
 
                <form onSubmit={handleCapitureEmail}>
                     <label htmlFor="text"></label>
@@ -66,6 +75,8 @@ export function FormStep2(){
                         autoFocus
                         onChange={event => setEmailUser(event.target.value)}
                         id="text"
+                        onClick={handleChangeBorder}
+                        style={{border: `3px solid ${!validateInput ? '#53FB37' : '#fd7171ec'}` }}
                     />
                     <button type="submit">Proximo</button>
                </form>

@@ -10,7 +10,7 @@ export function PageInfo(){
             <C.Container>
                 <div>
                     <h2>mas</h2>
-                    <h1>e qual nosos difertencial?</h1>
+                    <h1>e qual nosso diferencial?</h1>
                 </div>
 
 

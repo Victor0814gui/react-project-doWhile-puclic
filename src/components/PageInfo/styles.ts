@@ -14,10 +14,16 @@ export const Container = styled.div`
 
         h2{
             font-weight: 300;
+
+            font-family: var(--Inter);
+
+            margin-top: 25px;
         }
 
         h1{
             font-weight: 600;
+            font-family: var(--Inter);
+
             margin-top: 0;
         }
     }
@@ -26,6 +32,8 @@ export const Container = styled.div`
         text-align: center;
         font-weight: 200;
         margin-top: 90px;
+
+        font-family: var(--Inter);
 
         span:first-child{
             color: var(--red-text);
@@ -51,6 +59,7 @@ export const Container = styled.div`
         h3{
             text-align: center;
             font-size: 37px;
+            font-family: var(--Inter);
             font-weight: 200;
             
             margin: 70px 0;
@@ -90,10 +99,11 @@ export const ContainerImage = styled.div`
 
     h1{
         color: var(--white);
-        font-weight: 300;
-        font-family: var(--Roboto);
+        font-family: var(--Inter);
         font-size: 31px;
+        font-weight: 300;
         text-align: center;
+        margin: 100px 0 100px 0;
 
         span:first-child{
             color: var(--white);

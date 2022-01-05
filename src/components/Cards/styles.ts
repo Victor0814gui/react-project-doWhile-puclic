@@ -26,7 +26,6 @@ export const SectionCard = styled.div`
     h2{
         color: var(--color-card-orange);
         margin-top: 20px;
-        
     }
 
     div{
@@ -56,9 +55,10 @@ export const SectionCard = styled.div`
   article{
       padding: 16px 12px;
 
+
       min-width: 230px;
       height: 280px;
-      margin: 7px;
+      margin: 7px 20px;
 
       border: 4px solid var(--color-card-violet);
       border-radius: 30px;
@@ -83,6 +83,7 @@ export const SectionCard = styled.div`
       h3,h4,span{
         color: var(--white);
         font-weight: 300;
+
       }
 
       h4{
@@ -95,6 +96,8 @@ export const SectionCard = styled.div`
         margin: 10px 0 0 30px;
         color: var(--white);
         font-weight: 300;
+
+        font-family: var(--Inter);
       }
 
       p{

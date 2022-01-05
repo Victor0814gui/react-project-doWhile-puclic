@@ -10,6 +10,7 @@ import { CardDistruibuidor } from './pages/CardInfo/pageDistribuidor'
 import { CardMinerador } from './pages/CardInfo/pageMinerador'
 
 import { InfoUser } from './pages/InfoUser'
+import { NotFound } from './pages/NotFound'
 
 export function Router(){
   return(
@@ -27,6 +28,7 @@ export function Router(){
 
         <Route path="/info" component={InfoUser}/>
 
+        <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
   )

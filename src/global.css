@@ -6,6 +6,9 @@
 }
 
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
 :root{
     --background: #1f1f1fde;
     --white: #FFF;
@@ -24,6 +27,8 @@
     --color-card-green: #53FB37;
 
     --Roboto:'Roboto', sans-serif;
+    --Inter: 'Inter', sans-serif;
+
 }
 
 body{
@@ -33,6 +38,8 @@ body{
 img{
     max-width: 100%;
 }
+
+
 
 .flex{
     display: flex;
@@ -52,4 +59,10 @@ input{
 
 input[type="text"]:focus{
     outline:0;
+}
+
+
+a{
+    color: var(--white);
+    font-family: var(--Inter);
 }

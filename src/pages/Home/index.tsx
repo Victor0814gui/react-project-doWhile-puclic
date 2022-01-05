@@ -22,7 +22,7 @@ export function Home(){
                 seja bem vindo(a)
                      
                 {(state.name !== '') && (
-                <span>,{state.name}</span>)}
+                <span>, {state.name}</span>)}
             </h2>
             <C.ContainerImage onClick={() => history.push('/info')}>
                 <img src={userImage} alt="" />
